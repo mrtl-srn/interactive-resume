@@ -31,6 +31,8 @@ export interface SkillItem {
 
 // ===== EXPERIENCES =====
 
+import type { TechName } from './tech-registry'
+
 export interface Experience {
   id: string
   company: LocalizedString
@@ -38,7 +40,7 @@ export interface Experience {
   type?: LocalizedString
   period: LocalizedString
   description: LocalizedString
-  techs: string[]
+  techs: (TechName | (string & {}))[]
   isHighlighted?: boolean
   subItem?: {
     title: LocalizedString
@@ -58,7 +60,7 @@ export interface Project {
   id: string
   title: LocalizedString
   description: LocalizedString
-  techs: string[]
+  techs: (TechName | (string & {}))[]
   url?: string
   github?: string
 }
@@ -163,6 +165,5 @@ export interface ResumeConfig {
     colors?: Partial<ThemeColors>
     defaultMode?: 'light' | 'dark' | 'system'
   }
-  techColors?: Record<string, string>
   labels: ResumeLabels
 }

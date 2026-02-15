@@ -241,17 +241,19 @@ theme: {
 
 ## Tech Badge Colors
 
-Map tech names to their brand colors:
+150+ technologies are built-in with their brand colors (see `src/data/tech-registry.ts`).
+
+Tech names in `techs` arrays are **type-checked**: your editor will autocomplete valid names and flag typos.
+
+To add a custom technology, add it to the registry:
 
 ```typescript
-techColors: {
-  'React': '#61DAFB',
-  'TypeScript': '#3178C6',
-  'Node.js': '#339933',
-}
+// In src/data/tech-registry.ts
+const TECH_REGISTRY = {
+  // ... existing entries
+  'My Custom Tool': { color: '#FF6600' },
+} as const satisfies Record<string, { color: string }>
 ```
-
-These colors are used in skill badges and experience tech tags.
 
 ## SEO
 

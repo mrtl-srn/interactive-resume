@@ -88,9 +88,19 @@ export const resumeConfig: ResumeConfig = {
     },
     {
       title: { en: 'DevOps', fr: 'DevOps' },
+      type: 'badges',
+      items: [
+        { name: 'Docker' },
+        { name: 'Kubernetes' },
+        { name: 'AWS' },
+        { name: 'GitHub Actions' },
+      ],
+    },
+    {
+      title: { en: 'Methodologies', fr: 'Méthodologies' },
       type: 'text',
       items: [
-        { name: 'Docker, Kubernetes, AWS, GitHub Actions' },
+        { name: { en: 'Agile/Scrum, TDD, Code Review, CI/CD', fr: 'Agile/Scrum, TDD, Code Review, CI/CD' } },
       ],
     },
   ],
@@ -214,7 +224,7 @@ export const resumeConfig: ResumeConfig = {
         en: 'Contributed to the development of an e-commerce platform. Gained experience in fullstack development.',
         fr: 'Contribution au développement d\'une plateforme e-commerce. Acquisition d\'expérience en développement fullstack.',
       },
-      techs: ['React', 'Node.js', 'MongoDB'],
+      techs: ['React', 'Node.js', 'MongoDB', 'Machine Learning'],
       details: {
         context: {
           en: 'Early-stage startup (seed round), small team of 5 developers building an e-commerce platform from the ground up. Fast-paced environment with weekly releases.',
@@ -327,13 +337,6 @@ export const resumeConfig: ResumeConfig = {
     //   primaryLight: '#D4A574',
     // },
   },
-
-  // ===== TECH BADGE COLORS (optional) =====
-  // 150+ technologies already have their brand colors built-in (see src/data/tech-registry.ts).
-  // Only use this to override existing colors or add colors for custom/niche technologies.
-  // techColors: {
-  //   'My Custom Tool': '#FF6600',
-  // },
 
   // ===== UI LABELS =====
   labels: {

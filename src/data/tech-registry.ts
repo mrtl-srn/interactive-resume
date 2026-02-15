@@ -1,13 +1,10 @@
-import { resumeConfig } from './resume-config'
-
 /**
  * Central registry of known technologies with their brand colors.
- * Users don't need to define colors manually — just use the tech name
- * in their config and the color is resolved automatically.
+ * Use the tech name in your config and the color is resolved automatically.
  *
- * To override a color, add it to `techColors` in your resume-config.ts.
+ * To add a custom technology, add it here with its brand color.
  */
-export const TECH_REGISTRY: Record<string, { color: string }> = {
+const TECH_REGISTRY = {
   // ===== Frontend Frameworks =====
   'React': { color: '#61DAFB' },
   'Angular': { color: '#DD0031' },
@@ -186,17 +183,16 @@ export const TECH_REGISTRY: Record<string, { color: string }> = {
   'JSP': { color: '#007396' },
   'JSF': { color: '#007396' },
   'jQuery': { color: '#0769AD' },
-} as const
+} as const satisfies Record<string, { color: string }>
+
+export type TechName = keyof typeof TECH_REGISTRY
 
 /**
  * Resolves the color for a given tech name.
- * Priority: user override (techColors in config) → registry → fallback gray.
+ * Priority: registry → fallback gray.
  */
 export function getTechColor(name: string): string {
-  const userOverride = resumeConfig.techColors?.[name]
-  if (userOverride) return userOverride
-
-  const registered = TECH_REGISTRY[name]
+  const registered = TECH_REGISTRY[name as TechName]
   if (registered) return registered.color
 
   return '#6b7280'
